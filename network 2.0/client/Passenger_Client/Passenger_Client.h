@@ -1,0 +1,33 @@
+#ifndef _Passenger_Client_
+#define _Passenger_Client_
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <sstream>
+#include "client_socket.h"
+#include "client_exception.h"
+
+using namespace std;
+
+class Passenger_Client
+{
+	public:
+		Passenger_Client(char* argv1, char* argv2);
+		void send(string command);
+		void receive();
+		void check_command(string command);
+		void set_key(string command);
+		string find_username(string command);
+
+
+	private:
+		ClientSocket* socket;
+		string username;
+		string key;
+		bool is_login;
+		bool is_registered;
+};
+
+#endif
